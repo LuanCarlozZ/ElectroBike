@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroBike - Bicicletas Elétricas Premium</title>
+    <!-- Removed Tailwind CSS CDN and inline styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <div class="logo">ElectroBike</div>
+                <div class="nav-links">
+                    <a href="#home">Início</a>
+                    <a href="#models">Modelos</a>
+                    <a href="#features">Recursos</a>
+                    <a href="#contact">Contato</a>
+                </div>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu hidden">
+                <a href="#home">Início</a>
+                <a href="#models">Modelos</a>
+                <a href="#features">Recursos</a>
+                <a href="#contact">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="floating-particles">
+            <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+            <div class="particle" style="top: 30%; left: 50%; animation-delay: 1s;"></div>
+            <div class="particle" style="top: 50%; left: 80%; animation-delay: 2s;"></div>
+            <div class="particle" style="top: 70%; left: 40%; animation-delay: 3s;"></div>
+            <div class="particle" style="top: 90%; left: 60%; animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        O Futuro da <span class="gradient-text">Mobilidade</span> Urbana
+                    </h1>
+                    <p class="hero-description">
+                        Descubra nossa linha premium de bicicletas elétricas. Tecnologia avançada, design elegante e sustentabilidade em cada pedalada.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">Ver Modelos</button>
+                        <button class="btn btn-secondary">Agendar Test Drive</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="fotos/urban-electric-bicycle-detailed-view.jpg" alt="Bicicleta Elétrica">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="models-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Modelos</h2>
+                <p>Escolha a bicicleta elétrica perfeita para seu estilo de vida</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="urban">Urbana</button>
+                <button class="filter-btn" data-filter="mountain">Mountain</button>
+                <button class="filter-btn" data-filter="cargo">Cargo</button>
+            </div>
+
+            <!-- Bike Models Grid -->
+            <div class="bikes-grid" id="bikes-grid">
+                <!-- Urban Model 1 -->
+                <div class="bike-card" data-category="urban">
+                    <img src="fotos/urban-electric-bicycle-detailed-view.jpg" alt="ElectroBike Urban Pro">
+                    <div class="card-content">
+                        <h3>Urban Pro</h3>
+                        <p>Perfeita para o dia a dia urbano com design elegante e tecnologia avançada.</p>
+                        
+                        <div class="specs">
+                            <h4>Especificações:</h4>
+                            <ul>
+                                <li>• Motor: 250W Brushless</li>
+                                <li>• Bateria: 36V 10Ah Lithium</li>
+                                <li>• Autonomia: até 60km</li>
+                                <li>• Velocidade máx: 25km/h</li>
+                                <li>• Peso: 22kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="price">R$ 3.299</div>
+                            <button class="btn btn-primary" onclick="openModal('urban-pro')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mountain Model -->
+                <div class="bike-card" data-category="mountain">
+                    <img src="fotos/mountain-electric-bicycle-detailed-view.jpg" alt="ElectroBike Mountain X">
+                    <div class="card-content">
+                        <h3>Mountain X</h3>
+                        <p>Para aventuras off-road com potência e resistência incomparáveis.</p>
+                        
+                        <div class="specs">
+                            <h4>Especificações:</h4>
+                            <ul>
+                                <li>• Motor: 500W Mid-Drive</li>
+                                <li>• Bateria: 48V 14Ah Lithium</li>
+                                <li>• Autonomia: até 80km</li>
+                                <li>• Velocidade máx: 32km/h</li>
+                                <li>• Peso: 26kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="price">R$ 4.899</div>
+                            <button class="btn btn-primary" onclick="openModal('mountain-x')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cargo Model -->
+                <div class="bike-card" data-category="cargo">
+                    <img src="fotos/cargo-electric-bicycle-detailed-view.jpg" alt="ElectroBike Cargo Max">
+                    <div class="card-content">
+                        <h3>Cargo Max</h3>
+                        <p>Ideal para entregas e transporte de cargas com máxima eficiência.</p>
+                        
+                        <div class="specs">
+                            <h4>Especificações:</h4>
+                            <ul>
+                                <li>• Motor: 750W Rear Hub</li>
+                                <li>• Bateria: 48V 17Ah Lithium</li>
+                                <li>• Autonomia: até 100km</li>
+                                <li>• Carga máx: 150kg</li>
+                                <li>• Peso: 35kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="price">R$ 5.499</div>
+                            <button class="btn btn-primary" onclick="openModal('cargo-max')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urban Model 2 -->
+                <div class="bike-card" data-category="urban">
+                    <img src="fotos/compact-folding-electric-bicycle-detailed-view.jpg" alt="ElectroBike City Compact">
+                    <div class="card-content">
+                        <h3>City Compact</h3>
+                        <p>Dobrável e compacta, perfeita para espaços pequenos e transporte público.</p>
+                        
+                        <div class="specs">
+                            <h4>Especificações:</h4>
+                            <ul>
+                                <li>• Motor: 250W Hub</li>
+                                <li>• Bateria: 36V 8Ah Lithium</li>
+                                <li>• Autonomia: até 45km</li>
+                                <li>• Velocidade máx: 25km/h</li>
+                                <li>• Peso: 18kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="price">R$ 2.799</div>
+                            <button class="btn btn-primary" onclick="openModal('city-compact')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mountain Model 2 -->
+                <div class="bike-card" data-category="mountain">
+                    <img src="/fotos/full-suspension-electric-mountain-bike-detailed-vi.jpg" alt="ElectroBike Trail Beast">
+                    <div class="card-content">
+                        <h3>Trail Beast</h3>
+                        <p>Full suspension para os terrenos mais desafiadores e trilhas extremas.</p>
+                        
+                        <div class="specs">
+                            <h4>Especificações:</h4>
+                            <ul>
+                                <li>• Motor: 750W Mid-Drive</li>
+                                <li>• Bateria: 48V 17Ah Lithium</li>
+                                <li>• Autonomia: até 90km</li>
+                                <li>• Velocidade máx: 35km/h</li>
+                                <li>• Peso: 28kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="price">R$ 6.299</div>
+                            <button class="btn btn-primary" onclick="openModal('trail-beast')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urban Premium -->
+                <div class="bike-card" data-category="urban">
+                    <img src="fotos/smart-connected-electric-bicycle-detailed-view.jpg" alt="ElectroBike Smart Elite">
+                    <div class="card-content">
+                        <h3>Smart Elite</h3>
+                        <p>O topo de linha com conectividade inteligente e recursos premium.</p>
+                        
+                        <div class="specs">
+                            <h4>Especificações:</h4>
+                            <ul>
+                                <li>• Motor: 350W Mid-Drive</li>
+                                <li>• Bateria: 48V 12Ah Lithium</li>
+                                <li>• Autonomia: até 75km</li>
+                                <li>• GPS + App integrado</li>
+                                <li>• Peso: 24kg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="price">R$ 4.299</div>
+                            <button class="btn btn-primary" onclick="openModal('smart-elite')">Ver Detalhes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por que Escolher ElectroBike?</h2>
+                <p>Tecnologia de ponta e qualidade premium em cada detalhe</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3>Bateria Duradoura</h3>
+                    <p>Baterias de lítio de alta qualidade com até 100km de autonomia</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3>Garantia Premium</h3>
+                    <p>2 anos de garantia completa e suporte técnico especializado</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3>Sustentável</h3>
+                    <p>Zero emissões, contribuindo para um futuro mais verde</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>App Inteligente</h3>
+                    <p>Conectividade Bluetooth e app para monitoramento completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para Revolucionar sua Mobilidade?</h2>
+                <p>Agende um test drive gratuito e experimente a diferença</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-white">Agendar Test Drive</button>
+                    <button class="btn btn-outline">Falar com Especialista</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ElectroBike</h3>
+                    <p>Revolucionando a mobilidade urbana com tecnologia e sustentabilidade.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="#">Bicicletas Urbanas</a></li>
+                        <li><a href="#">Mountain Bikes</a></li>
+                        <li><a href="#">Cargo Bikes</a></li>
+                        <li><a href="#">Acessórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Garantia</a></li>
+                        <li><a href="#">Manutenção</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <p>📧 contato@electrobike.com</p>
+                        <p>📱 (11) 9999-9999</p>
+                        <p>📍 São Paulo, SP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ElectroBike. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button onclick="closeModal()" class="modal-close">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
